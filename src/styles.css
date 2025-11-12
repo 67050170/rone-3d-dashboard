@@ -1,0 +1,77 @@
+:root {
+	--bg: #0f1217;
+	--panel: #1a1f27;
+	--muted: #8b95a7;
+	--text: #e7edf5;
+	--primary: #6959ff;
+	--danger: #ff4d4f;
+	--ring: #2b3240;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.layout { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.header { display: flex; align-items: center; padding: 12px 0 4px; }
+.logo { font-size: 36px; font-weight: 800; letter-spacing: 0.5px; display: flex; gap: 10px; align-items: center; }
+
+.content { display: flex; flex-direction: column; gap: 18px; }
+.panel { background: var(--panel); border: 1px solid var(--ring); border-radius: 14px; padding: 16px; }
+.panel.two-col { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.panel-title { font-weight: 700; margin-bottom: 12px; }
+.empty { color: var(--muted); border: 1px dashed var(--ring); padding: 18px; border-radius: 10px; text-align: center; }
+
+.config-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { color: var(--muted); font-size: 12px; }
+.field input {
+	background: #11151b;
+	border: 1px solid var(--ring);
+	color: var(--text);
+	border-radius: 10px;
+	padding: 12px 12px;
+	outline: none;
+}
+.field input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px #6959ff22; }
+.actions { display: flex; gap: 10px; }
+.btn {
+	padding: 10px 16px;
+	border: none;
+	border-radius: 10px;
+	font-weight: 700;
+	cursor: pointer;
+}
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-danger { background: var(--danger); color: white; }
+
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+}
+.card {
+	background: #151a21;
+	border: 1px solid var(--ring);
+	border-radius: 14px;
+	padding: 16px;
+	min-height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.card-title { font-size: 14px; color: var(--muted); }
+.card-value { font-size: 36px; font-weight: 800; }
+
+@media (max-width: 920px) {
+	.cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.config-grid { grid-template-columns: 1fr; }
+}
+
+
